@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# Generated directories
+dist/
+data/
+
+# Environment variables
+.env
+
+.idea

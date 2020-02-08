@@ -6,6 +6,8 @@
     <body>
         {% include "./components/header.njk" %}
 
+        {{ content | safe }}
+
         <script src="/assets/js/main.js"></script>
     </body>
 </html>
