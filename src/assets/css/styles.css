@@ -58,7 +58,9 @@ main {
   padding: 20px; }
 
 header {
-  padding: 25px 20px; }
+  position: absolute;
+  left: 80px;
+  top: 110px; }
 
 a {
   font-family: 'LeagueSpartan';
@@ -66,20 +68,32 @@ a {
   text-decoration: none;
   color: #fff; }
   a span {
-    font-size: 2rem;
+    font-size: 4.5rem;
     display: inline-flex;
     transition: 0.35s; }
     a span.consonant:first-child {
-      margin-right: -28px; }
+      margin-right: -62px; }
     a span.vowel {
       color: transparent; }
       a span.vowel + .vowel {
-        margin-left: -36px; }
-  a:hover .consonant:first-child {
-    margin-right: 0; }
-  a:hover .vowel {
-    color: #fff; }
-    a:hover .vowel + .vowel {
-      margin-left: 0; }
+        margin-left: -72px; }
+  a:hover {
+    text-decoration: none; }
+    a:hover .vowel {
+      color: #fff; }
+      a:hover .vowel + .vowel {
+        margin-left: 0; }
+    a:hover .consonant:first-child {
+      margin-right: 0; }
   a .domain {
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
+
+@media only screen and (min-width: 768px) {
+  a span {
+    font-size: 8.5rem; }
+    a span.consonant:first-child {
+      margin-right: -106px; }
+    a span.vowel + .vowel {
+      margin-left: -126px; }
+  a .domain {
+    font-size: 2.7rem; } }

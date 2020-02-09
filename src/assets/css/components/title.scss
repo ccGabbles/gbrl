@@ -5,27 +5,25 @@ a {
     color: #fff;
 
     span {
-        font-size: 2rem;
+        font-size: 4.5rem;
         display: inline-flex;
         transition: 0.35s;
 
         &.consonant:first-child {
-            margin-right: -28px;
+            margin-right: -62px;
         }
 
         &.vowel {
             color: transparent;
 
             + .vowel {
-                margin-left: -36px;
+                margin-left: -72px;
             }
         }
     }
 
     &:hover {
-        .consonant:first-child {
-            margin-right: 0;
-        }
+        text-decoration: none;
 
         .vowel {
             color: #fff;
@@ -34,9 +32,33 @@ a {
                 margin-left: 0;
             }
         }
+
+        .consonant:first-child {
+            margin-right: 0;
+        }
     }
 
     .domain {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    a {
+        span {
+            font-size: 8.5rem;
+
+            &.consonant:first-child {
+                margin-right: -106px;
+            }
+
+            &.vowel + .vowel {
+                margin-left: -126px;
+            }
+        }
+        
+        .domain {
+            font-size: 2.7rem;
+        }
     }
 }
