@@ -1,0 +1,42 @@
+a {
+    font-family: 'LeagueSpartan';
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+
+    span {
+        font-size: 2rem;
+        display: inline-flex;
+        transition: 0.35s;
+
+        &.consonant:first-child {
+            margin-right: -28px;
+        }
+
+        &.vowel {
+            color: transparent;
+
+            + .vowel {
+                margin-left: -36px;
+            }
+        }
+    }
+
+    &:hover {
+        .consonant:first-child {
+            margin-right: 0;
+        }
+
+        .vowel {
+            color: #fff;
+
+            + .vowel {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .domain {
+        font-size: 1.4rem;
+    }
+}

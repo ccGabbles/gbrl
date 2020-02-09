@@ -1,1 +1,6 @@
-@import "./reset.scss";
+@import "./abstract/reset.scss";
+@import "./abstract/general.scss";
+
+
+@import "./components/header.scss";
+    @import "./components/title.scss";

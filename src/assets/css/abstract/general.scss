@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url("../fonts/LeagueSpartan-Bold.otf");
+}
+
+$themes: (
+    red:    #ff0035,
+    pink:   #ed639e,
+    blue:   #1ea0da,
+    green:  #00c95e,
+    yellow: #ffeB5e
+);
+
+@each $theme, $color in $themes {
+    body.#{$theme} {
+        background-color: $color;
+    }
+}
+
+body {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    padding: 20px;
+}

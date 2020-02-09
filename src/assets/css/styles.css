@@ -30,3 +30,56 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+@font-face {
+  font-family: 'LeagueSpartan';
+  src: url("../fonts/LeagueSpartan-Bold.otf"); }
+
+body.red {
+  background-color: #ff0035; }
+
+body.pink {
+  background-color: #ed639e; }
+
+body.blue {
+  background-color: #1ea0da; }
+
+body.green {
+  background-color: #00c95e; }
+
+body.yellow {
+  background-color: #ffeB5e; }
+
+body {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif; }
+
+main {
+  padding: 20px; }
+
+header {
+  padding: 25px 20px; }
+
+a {
+  font-family: 'LeagueSpartan';
+  display: inline-block;
+  text-decoration: none;
+  color: #fff; }
+  a span {
+    font-size: 2rem;
+    display: inline-flex;
+    transition: 0.35s; }
+    a span.consonant:first-child {
+      margin-right: -28px; }
+    a span.vowel {
+      color: transparent; }
+      a span.vowel + .vowel {
+        margin-left: -36px; }
+  a:hover .consonant:first-child {
+    margin-right: 0; }
+  a:hover .vowel {
+    color: #fff; }
+    a:hover .vowel + .vowel {
+      margin-left: 0; }
+  a .domain {
+    font-size: 1.4rem; }
