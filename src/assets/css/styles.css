@@ -35,20 +35,23 @@ table {
   font-family: 'LeagueSpartan';
   src: url("../fonts/LeagueSpartan-Bold.otf"); }
 
+body.orange {
+  background-color: #ff8124; }
+
 body.red {
   background-color: #ff0035; }
 
 body.pink {
   background-color: #ed639e; }
 
+body.purple {
+  background-color: #563d7c; }
+
 body.blue {
   background-color: #1ea0da; }
 
 body.green {
   background-color: #00c95e; }
-
-body.yellow {
-  background-color: #ffeB5e; }
 
 body {
   color: #fff;

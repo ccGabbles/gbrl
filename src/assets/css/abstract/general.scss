@@ -4,11 +4,12 @@
 }
 
 $themes: (
+    orange: #ff8124,
     red:    #ff0035,
     pink:   #ed639e,
+    purple: #563d7c,
     blue:   #1ea0da,
-    green:  #00c95e,
-    yellow: #ffeB5e
+    green:  #00c95e
 );
 
 @each $theme, $color in $themes {
