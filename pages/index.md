@@ -1,5 +1,5 @@
 ---
-layout: index.njk
+layout: layout/index.njk
 title: Homepage - GBRL
 ---
 

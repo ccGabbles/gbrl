@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link href="./src/assets/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        {% include "../components/header.njk" %}
+
+        <main>
+            {{ content | safe }}
+        </main>
+
+        <script src="./src/assets/js/main.js"></script>
+    </body>
+</html>

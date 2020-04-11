@@ -10,9 +10,10 @@ module.exports = function(config) {
 
   return {
     dir: {
-      input: 'src',
+      input: 'pages',
       output: 'dist',
-      includes: 'templates'
+      includes: '../src/templates',
+      data: '../data'
     },
     passthroughFileCopy: true
   };
