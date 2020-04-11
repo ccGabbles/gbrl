@@ -1,3 +1,3 @@
 # gbrl.xyz
 
-Nothing much to see here... 👀
+Nothing to see here... 👀
