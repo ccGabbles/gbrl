@@ -10,5 +10,9 @@
     {
         "fromUrl": "this",
         "toUrl": "https://github.com/ccGabbles/gbrl"
+    },
+    {
+        "fromUrl": "hu",
+        "toUrl": ""https://github.com/ccGabbles/HU-Jamstack-CICD-Boilerplate"
     }
 ]
