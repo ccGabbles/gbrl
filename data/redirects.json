@@ -14,5 +14,9 @@
     {
         "fromUrl": "hu",
         "toUrl": "https://github.com/ccGabbles/HU-Jamstack-CICD-Boilerplate"
+    },
+    {
+        "fromUrl": "flo",
+        "toUrl": "https://teams.microsoft.com/dl/launcher/launcher.html?url=%2f_%23%2fl%2fmeetup-join%2f19%3ameeting_MWVhNGVmMDMtNzExYy00ZGYzLTlhYWQtYjQ3ZDcyNWY3Yzky%40thread.v2%2f0%3fcontext%3d%257b%2522Tid%2522%253a%252276a2ae5a-9f00-4f6b-95ed-5d33d77c4d61%2522%252c%2522Oid%2522%253a%2522d888350e-53e4-4d75-b20c-0f54651959fc%2522%257d%26anon%3dtrue&type=meetup-join&deeplinkId=e0e0f1c7-298b-4671-abc5-1fb7e53e8a70&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true"
     }
 ]
