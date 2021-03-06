@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Personal site",
   "scripts": {
-    "build": "npm run lambda:build & npm run sass && npx eleventy",
     "eleventy": "npx eleventy --serve",
     "sass": "node-sass src/assets/css/styles.scss src/assets/css/styles.css",
     "lambda:serve": "netlify-lambda serve src/lambda",
-    "lambda:build": "netlify-lambda build src/lambda"
+    "lambda:build": "netlify-lambda build src/lambda",
+    "build": "npm run sass && npm run lambda:build && npx eleventy"
   },
   "repository": {
     "type": "git",
