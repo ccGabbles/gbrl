@@ -26,5 +26,9 @@
     {
         "fromUrl": "visreg",
         "toUrl": "https://github.com/ccGabbles/visual-regression"
+    },
+    {
+        "fromUrl": "Cappie",
+        "toUrl": "https://4b8d6a2ade43.ngrok.io/"
     }
 ]
