@@ -34,5 +34,8 @@
     {
         "fromUrl": "totallynotaphishinglink",
         "toUrl": "https://forms.office.com/Pages/ResponsePage.aspx?id=Wq6idgCfa0-V7V0z13xNYQywJSmm0_pMnJAQWed1h8BURUxHNFIyTTJYWkJGSTVIUzRFTFZOR0Q3RS4u"
-    }
+    },
+    {
+        "fromUrl": "form",
+        "toUrl": "https://github.com/ccGabbles/gbrl/raw/master/src/assets/TownhallQuizChallengeCompetitionForm.docx"
 ]
