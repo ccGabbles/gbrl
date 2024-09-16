@@ -38,5 +38,9 @@
     {
         "fromUrl": "form",
         "toUrl": "https://github.com/ccGabbles/gbrl/raw/master/src/assets/TownhallQuizChallengeCompetitionForm.docx"
+    },
+    {
+        "fromUrl": "jap",
+        "toUrl": "https://www.google.com/maps/d/viewer?mid=1eUJeeG_rTNUk3xgrpOhKLBXGhAS3pAg&ll=31.078245577190074%2C133.615035&z=6"
     }
 ]
