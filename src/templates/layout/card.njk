@@ -10,7 +10,11 @@
       --bg-glow: #1d2243;
       --hint: #8f95b8;
       --focus: #ffffff;
-      --illusion: url(/src/assets/images/illusion.webp);
+      /* alternate-art foil texture (from simeydotme/pokemon-cards-css);
+         download it into src/assets/images/ and change the url to self-host */
+      --illusion-opacity: .2; /* 0 = no pattern, 1 = original strength */
+      --imgsize: 50%;
+      --illusion: url("https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/illusion.webp");
       box-sizing: border-box;
       padding-top: env(safe-area-inset-top, 0px);
       padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -99,9 +103,8 @@
     .shine::after {
       --space: 5%;
       --angle: 133deg;
-      --imgsize: 50%;
 
-      background-image: var(--illusion),
+      background-image:
         repeating-linear-gradient(0deg,
           rgb(255, 119, 115) calc(var(--space) * 1),
           rgba(255, 237, 95, 1) calc(var(--space) * 2),
@@ -122,17 +125,31 @@
           rgba(0, 0, 0, .15) 20%,
           rgba(0, 0, 0, .25) 120%);
 
-      background-blend-mode: exclusion, hue, hard-light;
-      background-size: var(--imgsize), 200% 700%, 300%, 200%;
-      background-position: center, 0% var(--posy, 50%), var(--posx, 50%) var(--posy, 50%), var(--posx, 50%) var(--posy, 50%);
+      background-blend-mode: hue, hard-light;
+      background-size: 200% 700%, 300%, 200%;
+      background-position: 0% var(--posy, 50%), var(--posx, 50%) var(--posy, 50%), var(--posx, 50%) var(--posy, 50%);
 
       filter: brightness(calc((var(--hyp, 0) * 0.3) + 0.5)) contrast(2) saturate(1.5);
     }
 
+    .shine::before,
     .shine::after {
       content: "";
-      background-size: var(--imgsize), 200% 400%, 195%, 200%;
-      background-position: center, 0% var(--posy, 50%),
+      grid-area: 1 / 1;
+    }
+
+    /* the foil pattern lives on its own layer so its strength can be set with --illusion-opacity */
+    .shine::before {
+      background-image: var(--illusion);
+      background-size: var(--imgsize, 50%);
+      background-position: center;
+      mix-blend-mode: exclusion;
+      opacity: var(--illusion-opacity, .25);
+    }
+
+    .shine::after {
+      background-size: 200% 400%, 195%, 200%;
+      background-position: 0% var(--posy, 50%),
         calc(var(--posx, 50%) * -1) calc(var(--posy, 50%) * -1), var(--posx, 50%) var(--posy, 50%);
       filter: brightness(calc((var(--hyp, 0) * 0.5) + 0.8)) contrast(1.6) saturate(1.4);
       mix-blend-mode: exclusion;
