@@ -1,3 +1,3 @@
-# gbrl.xyz
+# gbrl.cc
 
 Nothing to see here... 👀
