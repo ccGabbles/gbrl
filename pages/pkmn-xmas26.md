@@ -1,7 +1,7 @@
 ---
 layout: layout/card.njk
 title: Pokémon Christmas Card 2026
-permalink: /xmas26/
+permalink: /pkmn-xmas26/
 frontImage: /src/assets/images/front.png
 backImage: /src/assets/images/back.png
 frontAlt: Voorkant van de kaart
