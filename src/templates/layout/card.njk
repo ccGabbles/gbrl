@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="{{ lang or 'nl' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Pokémon Christmas Card 2026</title>
+  <title>{{ title }}</title>
   <style>
     :root {
       --bg: #0c0e1a;
       --bg-glow: #1d2243;
       --hint: #8f95b8;
       --focus: #ffffff;
+      --illusion: url(/src/assets/images/illusion.webp);
       box-sizing: border-box;
       padding-top: env(safe-area-inset-top, 0px);
       padding-bottom: env(safe-area-inset-bottom, 0px);
       color-scheme: dark;
     }
 
-    html {
-      scroll-padding-top: env(safe-area-inset-top, 0px);
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+    html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+    html, body { height: 100%; margin: 0; }
 
     body {
       background: radial-gradient(ellipse at 50% 40%, var(--bg-glow) 0%, var(--bg) 70%);
@@ -66,9 +61,7 @@
       transition: transform .8s cubic-bezier(.2, .8, .2, 1);
     }
 
-    .flip.is-back {
-      transform: rotateY(180deg);
-    }
+    .flip.is-back { transform: rotateY(180deg); }
 
     .face {
       position: absolute;
@@ -81,9 +74,7 @@
       background: #111;
     }
 
-    .face.back {
-      transform: rotateY(180deg);
-    }
+    .face.back { transform: rotateY(180deg); }
 
     .face img {
       width: 100%;
@@ -94,29 +85,68 @@
       -webkit-user-drag: none;
     }
 
-    /* holo laag: regenboog die meebeweegt met de pointer */
+    /* ---- Alternate art holo (adapted from simeydotme/pokemon-cards-css, "rare ultra") ---- */
     .shine {
       position: absolute;
       inset: 0;
+      display: grid;
       pointer-events: none;
-      background: repeating-linear-gradient(110deg,
-      #ff0080 0%, #ffd000 10%, #38ff7a 20%, #00c8ff 30%, #8a4dff 40%, #ff0080 50%);
-      background-size: 260% 260%;
-      background-position: var(--px, 50%) var(--py, 50%);
       mix-blend-mode: color-dodge;
-      filter: brightness(.75) contrast(1.35) saturate(1.2);
-      opacity: var(--o, .4);
+      opacity: var(--o, .6);
     }
 
-    /* glans: lichtvlek die de pointer volgt */
+    .shine,
+    .shine::after {
+      --space: 5%;
+      --angle: 133deg;
+      --imgsize: 50%;
+
+      background-image: var(--illusion),
+        repeating-linear-gradient(0deg,
+          rgb(255, 119, 115) calc(var(--space) * 1),
+          rgba(255, 237, 95, 1) calc(var(--space) * 2),
+          rgba(168, 255, 95, 1) calc(var(--space) * 3),
+          rgba(131, 255, 247, 1) calc(var(--space) * 4),
+          rgba(120, 148, 255, 1) calc(var(--space) * 5),
+          rgb(216, 117, 255) calc(var(--space) * 6),
+          rgb(255, 119, 115) calc(var(--space) * 7)),
+        repeating-linear-gradient(var(--angle),
+          #0e152e 0%,
+          hsl(180, 10%, 60%) 3.8%,
+          hsl(180, 29%, 66%) 4.5%,
+          hsl(180, 10%, 60%) 5.2%,
+          #0e152e 10%,
+          #0e152e 12%),
+        radial-gradient(farthest-corner circle at var(--mx, 50%) var(--my, 50%),
+          rgba(0, 0, 0, .1) 12%,
+          rgba(0, 0, 0, .15) 20%,
+          rgba(0, 0, 0, .25) 120%);
+
+      background-blend-mode: exclusion, hue, hard-light;
+      background-size: var(--imgsize), 200% 700%, 300%, 200%;
+      background-position: center, 0% var(--posy, 50%), var(--posx, 50%) var(--posy, 50%), var(--posx, 50%) var(--posy, 50%);
+
+      filter: brightness(calc((var(--hyp, 0) * 0.3) + 0.5)) contrast(2) saturate(1.5);
+    }
+
+    .shine::after {
+      content: "";
+      background-size: var(--imgsize), 200% 400%, 195%, 200%;
+      background-position: center, 0% var(--posy, 50%),
+        calc(var(--posx, 50%) * -1) calc(var(--posy, 50%) * -1), var(--posx, 50%) var(--posy, 50%);
+      filter: brightness(calc((var(--hyp, 0) * 0.5) + 0.8)) contrast(1.6) saturate(1.4);
+      mix-blend-mode: exclusion;
+    }
+
+    /* glare: light spot following the pointer */
     .glare {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(farthest-corner circle at var(--gx, 50%) var(--gy, 50%),
-      rgba(255, 255, 255, .85) 0%, rgba(255, 255, 255, .15) 35%, rgba(0, 0, 0, .4) 100%);
+      background: radial-gradient(farthest-corner circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 255, 255, .8) 10%, rgba(255, 255, 255, .65) 20%, rgba(0, 0, 0, .5) 90%);
       mix-blend-mode: overlay;
-      opacity: var(--go, .5);
+      opacity: calc(var(--o, .6) * .8);
     }
 
     .hint {
@@ -132,53 +162,30 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .flip {
-        transition-duration: .01s;
-      }
+      .flip { transition-duration: .01s; }
     }
   </style>
 </head>
 <body>
 
 <div class="stage" id="stage">
-  <button class="tilt" id="tilt" aria-label="Draai de kaart om">
+  <button class="tilt" id="tilt" aria-label="{{ flipLabel or 'Draai de kaart om' }}">
     <div class="flip" id="flip">
       <div class="face front">
-        <img id="imgFront" alt="Voorkant van de kaart" draggable="false">
+        <img src="{{ frontImage }}" alt="{{ frontAlt or 'Voorkant van de kaart' }}" draggable="false">
         <div class="shine"></div>
         <div class="glare"></div>
       </div>
       <div class="face back">
-        <img id="imgBack" alt="Achterkant van de kaart" draggable="false">
+        <img src="{{ backImage }}" alt="{{ backAlt or 'Achterkant van de kaart' }}" draggable="false">
         <div class="glare"></div>
       </div>
     </div>
   </button>
 </div>
-<p class="hint">Beweeg over de kaart. Klik of tik om te draaien.</p>
+<p class="hint">{{ hint or 'Beweeg over de kaart. Klik of tik om te draaien.' }}</p>
 
 <script>
-  // function placeholder(label, c1, c2) {
-  //   var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="630" height="880" viewBox="0 0 630 880">' +
-  //     '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/></linearGradient></defs>' +
-  //     '<rect width="630" height="880" fill="url(#g)"/>' +
-  //     '<rect x="30" y="30" width="570" height="820" rx="24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="6"/>' +
-  //     '<circle cx="315" cy="400" r="150" fill="rgba(255,255,255,.12)"/>' +
-  //     '<text x="315" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#fff">' + label + '</text>' +
-  //     '<text x="315" y="780" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,.8)">vervang door je eigen PNG</text></svg>';
-  //   return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-  // }
-
-  // var FRONT_SRC = placeholder('Voorkant', '#1b6b8f', '#6a2c91');
-  // var BACK_SRC = placeholder('Achterkant', '#1a2a6c', '#b21f1f');
-    
-  var FRONT_SRC = '/src/assets/images/front.png'
-  var BACK_SRC = '/src/assets/images/back.png'
-    
-  document.getElementById('imgFront').src = FRONT_SRC;
-  document.getElementById('imgBack').src = BACK_SRC;
-
-  /* Tilt + holo */
   var tilt = document.getElementById('tilt');
   var flip = document.getElementById('flip');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -197,18 +204,21 @@
     }
     cx += (tx - cx) * 0.08;
     cy += (ty - cy) * 0.08;
-    var s = tilt.style, mag = Math.min(1, Math.hypot(cx, cy));
+
+    var s = tilt.style;
+    var hyp = Math.min(1, Math.hypot(cx, cy));
+    var px = 50 + cx * 50, py = 50 + cy * 50;   // pointer position in % of the card
+
     s.setProperty('--ry', (cx * 18).toFixed(2) + 'deg');
     s.setProperty('--rx', (-cy * 18).toFixed(2) + 'deg');
-    s.setProperty('--px', (50 + cx * 50).toFixed(1) + '%');
-    s.setProperty('--py', (50 + cy * 50).toFixed(1) + '%');
-    s.setProperty('--gx', (50 + cx * 40).toFixed(1) + '%');
-    s.setProperty('--gy', (50 + cy * 40).toFixed(1) + '%');
-    s.setProperty('--o', (0.3 + 0.45 * mag).toFixed(2));
-    s.setProperty('--go', (0.35 + 0.35 * mag).toFixed(2));
+    s.setProperty('--mx', px.toFixed(1) + '%');
+    s.setProperty('--my', py.toFixed(1) + '%');
+    s.setProperty('--posx', (37 + px * 0.26).toFixed(1) + '%');
+    s.setProperty('--posy', (33 + py * 0.34).toFixed(1) + '%');
+    s.setProperty('--hyp', hyp.toFixed(3));
+    s.setProperty('--o', (0.6 + 0.4 * hyp).toFixed(2));
     requestAnimationFrame(frame);
   }
-
   requestAnimationFrame(frame);
 
   tilt.addEventListener('click', function() {
